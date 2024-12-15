@@ -21,7 +21,7 @@ export default function Leaderboard() {
       <div className="max-w-3xl mx-auto">
         <img src="/fitvivo.png" alt="Fitvivo Logo" className="mx-auto h-24 mb-4" />
         <h1 className="text-4xl font-bold text-center text-blue-300 mb-8">
-          Fitvivo Games - Leaderboard
+          FitVivo Games - Leaderboard
         </h1>
         <div className="flex gap-2 mb-6 justify-center">
           <EventFilter
