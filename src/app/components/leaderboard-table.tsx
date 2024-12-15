@@ -28,6 +28,8 @@ export default function LeaderboardTable({
     return scoreA - scoreB;
   });
 
+  console.log(selectedEvent);
+
   return (
     <Table className="bg-gray-800 text-gray-100">
       <TableHeader className="bg-gray-700">
