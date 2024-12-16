@@ -6,7 +6,21 @@ import EventFilter from "./components/event-filter";
 import GenderSelector from "./components/gender-select";
 import { athletesMale, athletesFemale } from "../data/athletes";
 
-const allEvents = ["General", "Skilful", "Dukic", "Firestorm", "Infinity Quads", "Midline Climb", "Chad", "Track And Field", "Clean Ladder", "Shoulder Shutdown", "Wall Break", "Triplet", "War Machine"];
+const allEvents = [
+  "General",
+  "Skilful",
+  "Dukic",
+  "Infinity Quads",
+  "Firestorm",
+  "Shoulder Shutdown",
+  "Track And Field",
+  "Chad",
+  "Clean Ladder",
+  "Midline Climb",
+  "Wall Break",
+  "Triplet",
+  "War Machine",
+];
 const genders = ["Masculino", "Femenino"];
 
 const formatEventName = (eventName: string) => eventName.replace(/\s+/g, '');
