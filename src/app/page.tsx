@@ -6,8 +6,10 @@ import EventFilter from "./components/event-filter";
 import GenderSelector from "./components/gender-select";
 import { athletesMale, athletesFemale } from "../data/athletes";
 
-const events = ["General", "Skilful", "Dukic", "Firestorm", "Infinity Quads", "Midline Climb", "Chad", "Track and Field", "Clead Ladder", "Shoulder Shutdown", "Wall Break", "Triplet", "War Machine"];
+const allEvents = ["General", "Skilful", "Dukic", "Firestorm", "Infinity Quads", "Midline Climb", "Chad", "Track And Field", "Clean Ladder", "Shoulder Shutdown", "Wall Break", "Triplet", "War Machine"];
 const genders = ["Masculino", "Femenino"];
+
+const formatEventName = (eventName: string) => eventName.replace(/\s+/g, '');
 
 export default function Leaderboard() {
   const [selectedEvent, setSelectedEvent] = useState("General");
@@ -15,6 +17,8 @@ export default function Leaderboard() {
 
   const athletes =
     selectedGender === "Masculino" ? athletesMale : athletesFemale;
+
+  const events = selectedGender === "Masculino" ? allEvents : allEvents.filter(event => event !== "Skilful");
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-800 py-12 px-4 sm:px-6 lg:px-8 dark">
@@ -37,7 +41,7 @@ export default function Leaderboard() {
         </div>
         <LeaderboardTable
           athletes={athletes}
-          selectedEvent={selectedEvent}
+          selectedEvent={formatEventName(selectedEvent)}
         />
       </div>
     </div>

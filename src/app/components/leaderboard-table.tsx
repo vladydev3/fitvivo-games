@@ -11,6 +11,9 @@ interface Athlete {
   id: number;
   name: string;
   totalScore: number;
+  eventScores: {
+    [key: string]: number;
+  };
 }
 
 interface LeaderboardTableProps {
@@ -23,12 +26,10 @@ export default function LeaderboardTable({
   selectedEvent,
 }: LeaderboardTableProps) {
   const sortedAthletes = [...athletes].sort((a, b) => {
-    const scoreA = a.totalScore
-    const scoreB = b.totalScore
+    const scoreA = selectedEvent === "General" ? a.totalScore : a.eventScores[selectedEvent] || 0;
+    const scoreB = selectedEvent === "General" ? b.totalScore : b.eventScores[selectedEvent] || 0;
     return scoreA - scoreB;
   });
-
-  console.log(selectedEvent);
 
   return (
     <Table className="bg-gray-800 text-gray-100">
@@ -49,7 +50,7 @@ export default function LeaderboardTable({
               {athlete.name}
             </TableCell>
             <TableCell className="text-right border-b border-gray-700">
-              {athlete.totalScore}
+              {selectedEvent === "General" ? athlete.totalScore : athlete.eventScores[selectedEvent] || 0}
             </TableCell>
           </TableRow>
         ))}
